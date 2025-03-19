@@ -1,0 +1,10 @@
+{
+  "name": "onpoint-insulation-onboarding",
+  "version": "1.0.0",
+  "description": "OnPoint Insulation Onboarding Website",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r onpoint-onboarding-modern.html dist/index.html"
+  },
+  "author": "Echo AI Systems",
+  "license": "MIT"
+}
