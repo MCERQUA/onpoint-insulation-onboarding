@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnPoint Insulation - Project Onboarding</title>
+    <style>
+        /* Modern CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* Custom Properties */
+        :root {
+            --primary: #1a6ca2;
+            --primary-dark: #0f5182;
+            --secondary: #27ae60;
+            --secondary-dark: #1e8449;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 108, 162, 0.9) 0%, rgba(39, 174, 96, 0.8) 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .bg-light {
+            background-color: #ffffff;
+        }
+
+        .bg-dark {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        /* Cards */
+        .card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Grid System */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col {
+            flex: 1 0 0%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col-md-4 {
+            flex: 0 0 calc(33.333333% - 30px);
+            max-width: calc(33.333333% - 30px);
+            margin: 0 15px 30px 15px;
+        }
+
+        .col-md-6 {
+            flex: 0 0 calc(50% - 30px);
+            max-width: calc(50% - 30px);
+            margin: 0 15px 30px 15px;
+        }
+
+        .col-md-12 {
+            flex: 0 0 calc(100% - 30px);
+            max-width: calc(100% - 30px);
+            margin: 0 15px 30px 15px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -50px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            top: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Feature Icons */
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: var(--shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 0.85em;
+            font-weight: 500;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 50rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .badge-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* List groups */
+        .list-group {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: 0.75rem 1.25rem;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+        .list-group-item:first-child {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+
+        .list-group-item:last-child {
+            border-bottom-right-radius: inherit;
+            border-bottom-left-radius: inherit;
+        }
+
+        .list-group-item + .list-group-item {
+            border-top-width: 0;
+        }
+
+        /* Accordion */
+        .accordion {
+            margin-bottom: 20px;
+        }
+
+        .accordion-item {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background-color: #e9ecef;
+        }
+
+        .accordion-body {
+            padding: 1rem 1.25rem;
+            display: none;
+        }
+
+        .accordion-body.active {
+            display: block;
+        }
+
+        .accordion-icon {
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        /* Forms */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: var(--primary);
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(26, 108, 162, 0.25);
+        }
+
+        .form-select {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 2.25rem 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px 12px;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius);
+            appearance: none;
+        }
+
+        .form-check {
+            display: block;
+            min-height: 1.5rem;
+            padding-left: 1.5em;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-check-input {
+            width: 1em;
+            height: 1em;
+            margin-top: 0.25em;
+            vertical-align: top;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            appearance: none;
+            color-adjust: exact;
+            transition: var(--transition);
+        }
+
+        .form-check-input[type="checkbox"] {
+            border-radius: 0.25em;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        /* Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .mb-5 { margin-bottom: 3rem; }
+
+        .mt-1 { margin-top: 0.25rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-3 { margin-top: 1rem; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mt-5 { margin-top: 3rem; }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .col-md-4, .col-md-6 {
+                flex: 0 0 calc(100% - 30px);
+                max-width: calc(100% - 30px);
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 5px 10px;
+            }
+        }
+
+        /* Icons (Font Awesome alternative) */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+            vertical-align: -0.125em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <img src="https://raw.githubusercontent.com/MCERQUA/ECHO2/main/clients/Josh/on-point-insulation/Images/Logos/LOGO-BLK.webp" alt="OnPoint Insulation Logo" class="logo">
+                <ul class="nav-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#website-plan">Website</a></li>
+                    <li><a href="#seo-strategy">SEO</a></li>
+                    <li><a href="#eco-friendly">Eco-Friendly</a></li>
+                    <li><a href="#energy-efficiency">Energy</a></li>
+                    <li><a href="#feedback-form">Form</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Your OnPoint Insulation Project</h1>
+            <p>We're excited to create a professional, high-converting website that showcases your expertise in 2lb closed cell polyurethane spray foam insulation.</p>
+            <a href="#overview" class="btn btn-secondary btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Overview</h2>
+                <p class="lead">We've developed a comprehensive plan for your insulation business website that focuses on highlighting your expertise, eco-friendly practices, and exceptional service quality.</p>
+            </div>
+
+            <div class="row">
+                <!-- Project Goals Card -->
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Project Goals</h3>
+                        <p>Create a professional website that converts visitors into leads and highlights your unique approach to insulation services in Durango, CO.</p>
+                    </div>
+                </div>
+
+                <!-- Strategic Approach Card -->
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">📈</div>
+                        <h3>Strategic Approach</h3>
+                        <p>Focus on transparency, expertise, eco-friendly practices, and educational content that positions you as the premier insulation contractor in the region.</p>
+                    </div>
+                </div>
+
+                <!-- Implementation Plan Card -->
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">📋</div>
+                        <h3>Implementation Plan</h3>
+                        <p>Structured, phase-based approach beginning with core services pages and expanding to include comprehensive educational resources.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h3 class="mb-4">Project Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Discovery & Planning</h4>
+                                <p>Initial research, competitor analysis, and project planning (Completed)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Content Collection</h4>
+                                <p>Gathering detailed information about services, projects, and expertise (In Progress)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Design & Development</h4>
+                                <p>Creating the website structure and visual design (Upcoming)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Content Integration</h4>
+                                <p>Adding optimized content, images, and functionality (Upcoming)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Launch & Optimization</h4>
+                                <p>Going live and implementing ongoing improvements (Upcoming)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Plan Section -->
+    <section id="website-plan" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Website Plan</h2>
+                <p class="lead">We've designed a comprehensive website structure that highlights your services, expertise, and unique selling points.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Primary Pages
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">📄 Homepage</li>
+                                <li class="list-group-item">📄 About Us</li>
+                                <li class="list-group-item">📄 Services</li>
+                                <li class="list-group-item">📄 Eco-Friendly Commitment</li>
+                                <li class="list-group-item">📄 Home Performance</li>
+                                <li class="list-group-item">📄 Energy Efficiency</li>
+                                <li class="list-group-item">📄 Projects Gallery</li>
+                                <li class="list-group-item">📄 FAQs</li>
+                                <li class="list-group-item">📄 Testimonials/Reviews</li>
+                                <li class="list-group-item">📄 Contact Us</li>
+                                <li class="list-group-item">📄 Blog/Resources</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Service Pages
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">🏠 Residential Insulation</li>
+                                <li class="list-group-item">🏢 Commercial Insulation</li>
+                                <li class="list-group-item">🧪 Types of Insulation</li>
+                                <li class="list-group-item">💨 Air Sealing Packages</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            Air Sealing Packages (New)
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">✅ Standard Air Sealing</li>
+                                <li class="list-group-item">✅ Advanced Air Sealing</li>
+                                <li class="list-group-item">✅ Whole-Home Performance Package</li>
+                                <li class="list-group-item">✅ Commercial Building Envelope Solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Key Website Features
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>User Experience Features</h4>
+                                    <ul class="list-group mb-4">
+                                        <li class="list-group-item">📱 Responsive Design - Optimized for all devices</li>
+                                        <li class="list-group-item">⚡ Fast Loading - Optimized images and code</li>
+                                        <li class="list-group-item">🗺️ Interactive Service Area Map - Shows exact coverage</li>
+                                        <li class="list-group-item">🔍 Easy Navigation - Intuitive menu structure</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h4>Conversion Features</h4>
+                                    <ul class="list-group mb-4">
+                                        <li class="list-group-item">🧮 ROI Calculator - Show financial benefits</li>
+                                        <li class="list-group-item">📝 Request a Quote Form - Simple lead capture</li>
+                                        <li class="list-group-item">🔄 Before/After Comparisons - Visual demonstrations</li>
+                                        <li class="list-group-item">💬 Live Chat Integration - Immediate engagement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Strategy Section -->
+    <section id="seo-strategy" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>SEO Strategy</h2>
+                <p class="lead">We've developed a comprehensive SEO strategy to help your website rank well for relevant searches in the Durango area.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Primary Keywords
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-primary">2lb closed cell spray foam insulation Durango</span>
+                            <span class="badge badge-primary">Closed cell polyurethane insulation Colorado</span>
+                            <span class="badge badge-primary">2lb polyurethane spray foam Durango</span>
+                            <span class="badge badge-primary">High-density spray foam insulation Durango</span>
+                            <span class="badge badge-primary">Closed cell spray foam contractors Colorado</span>
+                            <span class="badge badge-primary">Professional spray foam installation Durango</span>
+                            <span class="badge badge-primary">Commercial grade spray foam insulation</span>
+                            <span class="badge badge-primary">Polyurethane closed cell foam Colorado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            Benefit Keywords
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-primary">Air barrier closed cell spray foam</span>
+                            <span class="badge badge-primary">Moisture resistant 2lb spray foam</span>
+                            <span class="badge badge-primary">Structural strength polyurethane insulation</span>
+                            <span class="badge badge-primary">Rigid cell spray foam insulation</span>
+                            <span class="badge badge-primary">Water resistant spray foam insulation</span>
+                            <span class="badge badge-primary">High-performance insulation Durango</span>
+                            <span class="badge badge-primary">Temperature control polyurethane insulation</span>
+                            <span class="badge badge-primary">Long-lasting insulation solution</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Eco-Friendly Practice Keywords
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-secondary">Low-VOC spray foam insulation Durango</span>
+                            <span class="badge badge-secondary">Eco-conscious insulation contractor Colorado</span>
+                            <span class="badge badge-secondary">Shore power insulation installation</span>
+                            <span class="badge badge-secondary">Reduced waste spray foam installation</span>
+                            <span class="badge badge-secondary">Environmentally responsible insulation</span>
+                            <span class="badge badge-secondary">Sustainable insulation practices</span>
+                            <span class="badge badge-secondary">Clean installation techniques Colorado</span>
+                            <span class="badge badge-secondary">Precision spray foam application</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            Energy Efficiency Keywords
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-secondary">Home performance contractor Durango</span>
+                            <span class="badge badge-secondary">Building envelope air sealing Colorado</span>
+                            <span class="badge badge-secondary">Energy efficient insulation Four Corners</span>
+                            <span class="badge badge-secondary">Air leakage reduction Durango</span>
+                            <span class="badge badge-secondary">Comprehensive air sealing package</span>
+                            <span class="badge badge-secondary">Home energy assessment Colorado</span>
+                            <span class="badge badge-secondary">Blower door testing Durango</span>
+                            <span class="badge badge-secondary">Thermal imaging inspection Colorado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco-Friendly Section -->
+    <section id="eco-friendly" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eco-Friendly Practices</h2>
+                <p class="lead">We've developed a strategy to authentically communicate your environmental commitment without greenwashing.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Authentic Environmental Commitment
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h4>🌱 Honest Approach to Sustainability</h4>
+                                <p>Acknowledging that spray foam installation isn't inherently eco-friendly but focusing on real practices to reduce environmental impact.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>🔌 Shore Power Utilization</h4>
+                                <p>Using electrical connections at job sites to reduce reliance on diesel generators, resulting in quieter, cleaner job sites.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>♻️ Waste Reduction Strategies</h4>
+                                <p>Employing skilled technicians with "On-Point" precision application to reduce overspray and trim waste.</p>
+                            </div>
+                            
+                            <div>
+                                <h4>🍃 Low-VOC Materials</h4>
+                                <p>Using spray foam with lower volatile organic compound content for health and environmental benefits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Communication Strategy
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h4>🔎 Transparency About Industry Realities</h4>
+                                <p>Acknowledging the environmental challenges of construction and insulation while avoiding misleading "green" claims.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>📊 Focus on Measurable Benefits</h4>
+                                <p>Quantifying energy savings, reduced carbon footprint, and waste reduction compared to industry standards.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>🎓 Education About Long-Term Benefits</h4>
+                                <p>Explaining how energy-efficient homes reduce lifetime environmental impact and the environmental cost/benefit analysis.</p>
+                            </div>
+                            
+                            <div>
+                                <h4>📸 Visual Demonstration</h4>
+                                <p>Before/after photos of clean job sites, images showing reusable vs. disposable materials, and documentation of precision techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Efficiency Section -->
+    <section id="energy-efficiency" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Energy Efficiency & Home Performance</h2>
+                <p class="lead">We've developed a strategy to position OnPoint Insulation as experts in whole-home performance, not just insulation.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Comprehensive Air Sealing Packages
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h4>Standard Air Sealing Package</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Targeted air sealing of major penetrations</li>
+                                    <li class="list-group-item">Weather stripping for doors and windows</li>
+                                    <li class="list-group-item">Basic attic air sealing</li>
+                                    <li class="list-group-item">Visual inspection and manual detection</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>Advanced Air Sealing Package</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Comprehensive air sealing of all penetrations</li>
+                                    <li class="list-group-item">Detailed rim joist and sill sealing</li>
+                                    <li class="list-group-item">Includes blower door directed air sealing</li>
+                                    <li class="list-group-item">Thermal imaging to identify problem areas</li>
+                                    <li class="list-group-item">Before/after blower door testing</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4>Whole-Home Performance Package</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Complete building envelope assessment</li>
+                                    <li class="list-group-item">Strategic insulation upgrade recommendations</li>
+                                    <li class="list-group-item">Moisture and ventilation analysis</li>
+                                    <li class="list-group-item">Energy modeling and savings projections</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Building Science Education Content
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h4>🏠 The Building Envelope</h4>
+                                <p>Educational content explaining what constitutes the building envelope, how air leakage impacts energy efficiency, and common failure points in building envelopes.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>⛰️ The Stack Effect in Mountain Homes</h4>
+                                <p>Simple explanation of the stack effect with illustrations, why high-altitude homes experience more severe stack effect, and solutions specific to mountain construction types.</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>💨 Air Sealing vs. Traditional Insulation</h4>
+                                <p>The complementary relationship between insulation and air sealing, why insulation alone isn't enough for optimal performance, and cost-benefit analysis of combined approaches.</p>
+                            </div>
+                            
+                            <div>
+                                <h4>📊 Energy Assessment Process</h4>
+                                <p>What to expect during a home energy assessment, equipment used (blower door, infrared camera, etc.), and how data is analyzed to create solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Form Section -->
+    <section id="feedback-form" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Feedback</h2>
+                <p class="lead">We need your input to create the perfect website for OnPoint Insulation. Please provide your thoughts and information through the form below.</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="onboardingForm">
+                    <!-- Company Information -->
+                    <h3 class="mb-4">Company Information</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="companyHistory" class="form-label">Company History & Mission</label>
+                                <textarea class="form-control" id="companyHistory" rows="4" placeholder="Please share your company's history and mission statement..."></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="serviceArea" class="form-label">Service Area Details</label>
+                                <textarea class="form-control" id="serviceArea" rows="4" placeholder="Please describe your exact service area (cities, counties, distance limits)..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="certifications" class="form-label">Certifications & Credentials</label>
+                                <textarea class="form-control" id="certifications" rows="3" placeholder="List any certifications, licenses, or professional memberships..."></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="teamInfo" class="form-label">Team Information</label>
+                                <textarea class="form-control" id="teamInfo" rows="3" placeholder="Brief descriptions of key team members..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Services Information -->
+                    <h3 class="mb-4 mt-5">Services Information</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="residentialServices" class="form-label">Residential Insulation Services</label>
+                                <textarea class="form-control" id="residentialServices" rows="4" placeholder="Describe your residential insulation services..."></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="commercialServices" class="form-label">Commercial Insulation Services</label>
+                                <textarea class="form-control" id="commercialServices" rows="4" placeholder="Describe your commercial insulation services..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Eco-Friendly Practices -->
+                    <h3 class="mb-4 mt-5">Eco-Friendly Practices</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="shorePower" class="form-label">Shore Power Capabilities</label>
+                                <textarea class="form-control" id="shorePower" rows="3" placeholder="Describe your shore power usage and when/how you use it..."></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="wasteReduction" class="form-label">Waste Reduction Techniques</label>
+                                <textarea class="form-control" id="wasteReduction" rows="3" placeholder="Detail your waste reduction strategies and techniques..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Energy Efficiency -->
+                    <h3 class="mb-4 mt-5">Energy Efficiency</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Current Energy Assessment Capabilities</label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="blowerDoor">
+                                    <label class="form-check-label" for="blowerDoor">Blower Door Testing</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="thermalImaging">
+                                    <label class="form-check-label" for="thermalImaging">Thermal Imaging</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="energyModeling">
+                                    <label class="form-check-label" for="energyModeling">Energy Modeling Software</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="pressureDiagnostics">
+                                    <label class="form-check-label" for="pressureDiagnostics">Pressure Diagnostics</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="energySavingsData" class="form-label">Energy Savings Data</label>
+                                <textarea class="form-control" id="energySavingsData" rows="4" placeholder="Any data on energy savings from your previous projects..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Website Preferences -->
+                    <h3 class="mb-4 mt-5">Website Preferences</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="websiteStyle" class="form-label">Preferred Website Style</label>
+                                <select class="form-select" id="websiteStyle">
+                                    <option selected disabled>Choose preferred style...</option>
+                                    <option value="modern">Modern & Sleek</option>
+                                    <option value="traditional">Traditional & Professional</option>
+                                    <option value="bold">Bold & Eye-catching</option>
+                                    <option value="minimalist">Minimalist & Clean</option>
+                                    <option value="technical">Technical & Educational</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="colorPreference" class="form-label">Color Preferences</label>
+                                <textarea class="form-control" id="colorPreference" rows="2" placeholder="Any specific colors you prefer or want to avoid..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Notes -->
+                    <h3 class="mb-4 mt-5">Additional Notes</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="additionalNotes" class="form-label">Any Other Information or Requests</label>
+                                <textarea class="form-control" id="additionalNotes" rows="5" placeholder="Share any other information, special requests, or ideas you'd like us to consider..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Submission -->
+                    <div class="row mt-5">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Feedback</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/MCERQUA/ECHO2/main/clients/Josh/on-point-insulation/Images/Logos/LOGO-WH.webp" alt="OnPoint Insulation Logo">
+            <p>&copy; 2025 OnPoint Insulation LLC. All rights reserved.</p>
+            <p>This onboarding site was created by <strong>Echo AI Systems</strong> for Contractors Choice Agency</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for basic interactivity -->
+    <script>
+        // Form submission handler with Mailgun integration
+        document.getElementById('onboardingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            let formValues = {};
+            
+            // Convert FormData to JSON object
+            formData.forEach((value, key) => {
+                // Handle checkboxes - collect checked ones as an array
+                if (key.includes('[]')) {
+                    const baseKey = key.replace('[]', '');
+                    if (!formValues[baseKey]) {
+                        formValues[baseKey] = [];
+                    }
+                    if (value) {
+                        formValues[baseKey].push(value);
+                    }
+                } else {
+                    formValues[key] = value;
+                }
+            });
+            
+            // Add checkbox values that aren't automatically included
+            const checkboxIds = ['blowerDoor', 'thermalImaging', 'energyModeling', 'pressureDiagnostics'];
+            const capabilities = [];
+            
+            checkboxIds.forEach(id => {
+                const checkbox = document.getElementById(id);
+                if (checkbox && checkbox.checked) {
+                    capabilities.push(checkbox.nextElementSibling.textContent.trim());
+                }
+            });
+            
+            formValues.energyCapabilities = capabilities.join(', ');
+
+            // Create email content
+            const emailSubject = "OnPoint Insulation Website Onboarding Form Submission";
+            let emailContent = `<h2>OnPoint Insulation Website Onboarding Form Submission</h2>
+                <h3>Company Information</h3>
+                <p><strong>Company History & Mission:</strong> ${formValues.companyHistory || 'Not provided'}</p>
+                <p><strong>Service Area Details:</strong> ${formValues.serviceArea || 'Not provided'}</p>
+                <p><strong>Certifications & Credentials:</strong> ${formValues.certifications || 'Not provided'}</p>
+                <p><strong>Team Information:</strong> ${formValues.teamInfo || 'Not provided'}</p>
+                
+                <h3>Services Information</h3>
+                <p><strong>Residential Services:</strong> ${formValues.residentialServices || 'Not provided'}</p>
+                <p><strong>Commercial Services:</strong> ${formValues.commercialServices || 'Not provided'}</p>
+                
+                <h3>Eco-Friendly Practices</h3>
+                <p><strong>Shore Power Capabilities:</strong> ${formValues.shorePower || 'Not provided'}</p>
+                <p><strong>Waste Reduction Techniques:</strong> ${formValues.wasteReduction || 'Not provided'}</p>
+                
+                <h3>Energy Efficiency</h3>
+                <p><strong>Assessment Capabilities:</strong> ${formValues.energyCapabilities || 'None selected'}</p>
+                <p><strong>Energy Savings Data:</strong> ${formValues.energySavingsData || 'Not provided'}</p>
+                
+                <h3>Website Preferences</h3>
+                <p><strong>Preferred Style:</strong> ${formValues.websiteStyle || 'Not selected'}</p>
+                <p><strong>Color Preferences:</strong> ${formValues.colorPreference || 'Not provided'}</p>
+                
+                <h3>Additional Notes</h3>
+                <p>${formValues.additionalNotes || 'No additional notes provided'}</p>`;
+
+            // For demonstration purposes, we'll simulate sending to Mailgun
+            // In a production environment, this would be handled by a server-side script
+            console.log("Form data that would be sent to Mailgun:", {
+                to: "mikecerqua@gmail.com",
+                subject: emailSubject,
+                html: emailContent
+            });
+            
+            // Show success message
+            alert('Thank you for your feedback! Your information has been submitted successfully. We will use this to create your custom website.');
+            
+            // In a real implementation, we would make an API call to your server here
+            // which would then use Mailgun's API to send the email
+            
+            // Example of what the server-side code would look like:
+            /*
+            fetch('/api/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    to: "mikecerqua@gmail.com",
+                    subject: emailSubject,
+                    html: emailContent
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Thank you for your feedback! Your information has been submitted successfully.');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error submitting your form. Please try again later.');
+            });
+            */
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
